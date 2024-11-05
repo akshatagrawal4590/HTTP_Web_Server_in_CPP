@@ -1,14 +1,4 @@
-@Configuration
-public class SecurityConfiguration {
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests((authz) -> authz
-                .anyRequest().authenticated()
-            )
-            .httpBasic(withDefaults());
-        return http.build();
+@Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/ignore1", "/ignore2");
     }
-
-}
